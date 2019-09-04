@@ -1,4 +1,4 @@
-#include "neuron.h"
+#include "Neuron.h"
 
 std::vector < float > Neuron::wygrane;
 std::vector <Neuron> Neuron::neuron;
@@ -6,9 +6,10 @@ std::vector <std::vector<std::vector<float> > > Neuron::bot;
 std::vector <std::vector<std::vector<float> > > Neuron::najlepszeBoty;
 float Neuron::procentWygrana = 0;
 float Neuron::maxProcentWygrana = 0;
+int Neuron::gen = 0;
 int Neuron::iloscGier = 2;
-int Neuron::iloscPotomkow = 100;
-int Neuron::iloscNajlepszychPotomkow = iloscPotomkow * 0.1;
+int Neuron::iloscPotomkow = 1000;
+int Neuron::iloscNajlepszychPotomkow = iloscPotomkow * 0.2;
 
 
 Neuron::Neuron(int ileWag, bool isOutputLayer)
@@ -218,6 +219,7 @@ void Neuron::update(float wygrana)
 		{
 			zlaczBoty(botIndex[i - 1][0], botIndex[i - 1][1], botIndex[i][0], botIndex[i][1]);
 		}
+		gen++;
 	}
 
 

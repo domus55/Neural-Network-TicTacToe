@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "neuron.h"
+#include "Neuron.h"
 
 
 class NeuralNetwork

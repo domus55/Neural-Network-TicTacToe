@@ -116,13 +116,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="NeuralNetwork.cpp" />
-    <ClCompile Include="neuron.cpp" />
+    <ClCompile Include="Neuron.cpp" />
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NeuralNetwork.h" />
-    <ClInclude Include="neuron.h" />
+    <ClInclude Include="Neuron.h" />
     <ClInclude Include="Plansza.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

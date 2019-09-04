@@ -160,7 +160,7 @@ bool Plansza::Wygrana()
 	if (pole[0][0] == 2 && pole[1][1] == 2 && pole[2][2] == 2) { wygrany = 2; }
 	if (pole[0][2] == 2 && pole[1][1] == 2 && pole[2][0] == 2) { wygrany = 2; }
 
-	if (wygrany != 0) { Wygral(wygrany); Czysc(); rezegraneGry++; if (rezegraneGry % 1000 == 0) { liczWygrane(); } return true; }
+	if (wygrany != 0) { Wygral(wygrany); Czysc(); rezegraneGry++; if (rezegraneGry % 10000 == 0) { liczWygrane(); } return true; }
 
 	bool puste = false;
 
@@ -172,7 +172,7 @@ bool Plansza::Wygrana()
 		}
 	}
 
-	if (!puste) { Remis(); Czysc(); rezegraneGry++; if (rezegraneGry % 1000 == 0) { liczWygrane(); } return true; }
+	if (!puste) { Remis(); Czysc(); rezegraneGry++; if (rezegraneGry % 10000 == 0) { liczWygrane(); } return true; }
 	return false;
 }
 
@@ -201,13 +201,14 @@ void Plansza::liczWygrane()
 
 	if (wszystkie == 0) wszystkie = 1;
 
+	cout << "Gen: " << Neuron::gen <<"\n";
 	cout << "Cross win rate: " << round(krzyzyk * 1000 / (float) wszystkie) / 10.0 << "%" << "\n";
 	cout << "Circle win rate: " << round(kolko * 1000 / (float) wszystkie) / 10.0 << "%" << "\n";
 	cout << "Draw: " << round(remis * 1000 / (float) wszystkie) / 10.0 << "%" << "\n";
 
-	static int a = 0;
-	a++;
-	cout << a << "\n";
+	//static int a = 0;
+	//a++;
+	//cout << a << "\n";
 
 	cout << "\n";
 

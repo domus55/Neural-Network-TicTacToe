@@ -5,11 +5,13 @@
 #include <ctime>
 #include <cstdlib>
 #include <vector>
+#include <conio.h>
 
 class Neuron
 {
 public:
 	static std::vector <Neuron> neuron;
+	static int gen;
 	float wartosc;	//0 - 1 
 	float * waga; //-1 - 1
 	float bias;	//nie dziala, ostatecznie zostal usuniety

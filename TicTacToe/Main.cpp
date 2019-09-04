@@ -6,7 +6,7 @@
 #include <cstdio>
 #include <conio.h>
 #include "Plansza.h"
-#include "neuron.h"
+#include "Neuron.h"
 #include "NeuralNetwork.h"
 
 using namespace std;
@@ -33,7 +33,7 @@ int main()
 
 	cout << "Hints: \n" <<
 		"1. Use 'o' and 'p' keys to see actual game \n" <<
-		"2. The neural network has a cross mark \n";
+		"2. The neural network has a cross mark \n" <<
 		"3. Easy opponent is really difficult to beat for neural network, becouse he chooses random field \n";
 	Sleep(1000);
 	cout << "Click any key \n";
@@ -360,8 +360,9 @@ void bot4(char znakk)
 	}
 
 	n = liczby[0];	//n = liczby[los]; - bedzie wybiera³ losowo spoœród najlepszych opcji
-
 	plansza.pole[n / 3][n % 3] = znak;
+
+	delete[] liczby;
 }
 
 void siecNeuronowa(char znakk)
@@ -373,7 +374,7 @@ void siecNeuronowa(char znakk)
 	static bool pierwszyRaz = true;
 	if (pierwszyRaz)
 	{
-		NeuralNetwork::Create(18, 9); 
+		NeuralNetwork::Create(18, 12, 12, 9); 
 		pierwszyRaz = false;
 	}
 
@@ -433,7 +434,13 @@ void siecNeuronowa(char znakk)
 void stop()
 {
 	static char znak = '0';
-	if (_kbhit()) znak = _getwch();
+	static long int licznik = 0;
+	licznik++;
+	if (licznik % 10000 == 0)
+	{
+		if (_kbhit()) znak = _getwch();
+	}
+
 	if (znak == 'p' || znak == 'P') stopp = true;
 	if (znak == 'o' || znak == 'O') stopp = false;
 	if (stopp)

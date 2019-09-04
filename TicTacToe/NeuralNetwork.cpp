@@ -88,6 +88,7 @@ void NeuralNetwork::CalculateOutputs()
 		Neuron::neuron[i + NumberOfInputs].wartosc = suma[i];
 	}
 
+	delete[] suma;
 
 	if (NumberOfLayer2 > 0)
 	{
@@ -107,6 +108,8 @@ void NeuralNetwork::CalculateOutputs()
 
 			Neuron::neuron[i + NumberOfInputs + NumberOfLayer1].wartosc = suma[i];
 		}
+
+		delete[] suma;
 	}
 
 	if (NumberOfLayer3 > 0)
@@ -127,6 +130,8 @@ void NeuralNetwork::CalculateOutputs()
 
 			Neuron::neuron[i + NumberOfInputs + NumberOfLayer1 + NumberOfLayer2].wartosc = suma[i];
 		}
+
+		delete[] suma;
 	}
 
 	if (NumberOfLayer4 > 0)
@@ -147,6 +152,8 @@ void NeuralNetwork::CalculateOutputs()
 
 			Neuron::neuron[i + NumberOfInputs + NumberOfLayer1 + NumberOfLayer2 + NumberOfLayer3].wartosc = suma[i];
 		}
+
+		delete[] suma;
 	}
 
 	if (NumberOfLayer5 > 0)
@@ -167,6 +174,7 @@ void NeuralNetwork::CalculateOutputs()
 
 			Neuron::neuron[i + NumberOfInputs + NumberOfLayer1 + NumberOfLayer2 + NumberOfLayer3 + NumberOfLayer4].wartosc = suma[i];
 		}
+		delete[] suma;
 	}
 }
 
@@ -174,31 +182,21 @@ void NeuralNetwork::Output(float output[])
 {
 	if (NumberOfLayer2 == 0)	//0 hiddenow
 	{
-		float *suma = new float[NumberOfLayer1];
-
 		for (int i = 0; i < NumberOfLayer1; i++)
 		{
 			output[i] = 0;
 		}
 
-		for (int i = 0; i < NumberOfInputs; i++)
-		{
-			//std::cout << Neuron::neuron[i].waga[0] << "\n";
-		}
-
 		for (int i = 0; i < NumberOfLayer1; i++)
 		{
 			output[i] += Neuron::neuron[i + NumberOfInputs].Iloczyn(0);
-			//std::cout << Neuron::neuron[i + NumberOfInputs].waga[0] << "\n";
-			//std::cout << output[i] << "\n";
+
 		}
 	}
 	else
 	{
 		if (NumberOfLayer3 == 0)	//1 hiddeny
 		{
-			float *suma = new float[NumberOfLayer2];
-
 			for (int i = 0; i < NumberOfLayer2; i++)
 			{
 				output[i] = 0;
@@ -213,8 +211,6 @@ void NeuralNetwork::Output(float output[])
 		{
 			if (NumberOfLayer4 == 0)	//2 hiddeny
 			{
-				float *suma = new float[NumberOfLayer3];
-
 				for (int i = 0; i < NumberOfLayer3; i++)
 				{
 					output[i] = 0;
@@ -229,8 +225,6 @@ void NeuralNetwork::Output(float output[])
 			{
 				if (NumberOfLayer5 == 0)	//3 hiddeny
 				{
-					float *suma = new float[NumberOfLayer4];
-
 					for (int i = 0; i < NumberOfLayer4; i++)
 					{
 						output[i] = 0;
@@ -243,8 +237,6 @@ void NeuralNetwork::Output(float output[])
 				}
 				else	//4 hiddeny
 				{
-					float *suma = new float[NumberOfLayer5];
-
 					for (int i = 0; i < NumberOfLayer5; i++)
 					{
 						output[i] = 0;
@@ -260,6 +252,4 @@ void NeuralNetwork::Output(float output[])
 		}
 
 	}
-
-
 }
