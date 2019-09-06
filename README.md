@@ -43,3 +43,12 @@ Result after 5 minutes
 ![alt text](https://github.com/domus55/Neural-Network-TicTacToe/blob/master/TicTacToe/Images/13.png)
 ![alt text](https://github.com/domus55/Neural-Network-TicTacToe/blob/master/TicTacToe/Images/14.png)
 ![alt text](https://github.com/domus55/Neural-Network-TicTacToe/blob/master/TicTacToe/Images/15.png)
+
+# Summary
+|Time|0 seconds|5 seconds|30 seconds|5 minutes|
+|---|---|---|---|---|
+|Easy|Winrate: 43.7%|49.2%|74.5%|82.4%|
+|Medium|Winrate: 24.6%|95%|100%|100%|
+|Hard|Winrate: 24%|81%|100%|100%|
+|Almost impossible|Winrate: 0.8%|1.9%|5.7%|16.8%
+
